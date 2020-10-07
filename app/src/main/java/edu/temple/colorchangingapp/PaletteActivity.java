@@ -22,7 +22,7 @@ public class PaletteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gridView = findViewById(R.id.gridView);
+        gridView = (GridView) findViewById(R.id.gridView);
 
         colorName = new ArrayList<>();
         colorVal = new ArrayList<>();
@@ -49,7 +49,7 @@ public class PaletteActivity extends AppCompatActivity {
         colorVal.add(Color.YELLOW);
         colorVal.add(Color.CYAN);
 
-        final BaseAdapter gridAdapter = new CustomAdapter(this, colorVal);
+        final BaseAdapter gridAdapter = new CustomAdapter(this,colorVal);
         gridView.setAdapter(gridAdapter);
 
         //gridView.setOnItemSelectedListener();
