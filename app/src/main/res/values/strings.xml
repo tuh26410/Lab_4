@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Color Changing App</string>
+    <string name="labelText">Click a color below to launch the canvas</string>
 </resources>

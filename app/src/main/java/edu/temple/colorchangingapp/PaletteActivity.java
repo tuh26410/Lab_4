@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,13 +19,15 @@ public class PaletteActivity extends AppCompatActivity {
     ArrayList<Integer> colorVal;
 
     GridView gridView;
+    TextView label;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gridView = (GridView) findViewById(R.id.gridView);
+        gridView = findViewById(R.id.gridView);
+        label = findViewById(R.id.label);
 
         colorName = new ArrayList<>();
         colorVal = new ArrayList<>();
