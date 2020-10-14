@@ -8,18 +8,22 @@ import android.widget.TextView;
 
 public class CanvasActivity extends AppCompatActivity {
 
-    TextView background = findViewById(R.id.background);
-    TextView display = findViewById(R.id.displayColor);
+    TextView background;
+    TextView display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_canvas);
 
+        background = findViewById(R.id.background);
+        display = findViewById(R.id.displayColor);
+
         Intent intent = getIntent();
 
         display.setText(intent.getStringExtra("colorName"));
-        display.setBackgroundColor(intent.getIntExtra("colorVal", -1));
+        display.setTextSize(34);
+        background.setBackgroundColor(intent.getIntExtra("colorVal", -1));
 
     }
 }
