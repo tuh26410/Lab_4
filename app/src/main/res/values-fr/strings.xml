@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Application de changement de couleur</string>
+    <string name="labelText">Cliquez sur une couleur ci-dessous pour lancer la toile</string>
+
     <string name="red">Rouge</string>
     <string name="blue">Bleu</string>
     <string name="black">Noir</string>
