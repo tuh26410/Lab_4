@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">Color Changing App</string>
     <string name="labelText">Click a color below to launch the canvas</string>
+
+    <!--Color Names-->
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="black">Black</string>
+    <string name="green">Green</string>
+    <string name="white">White</string>
+    <string name="lightGrey">Light Grey</string>
+    <string name="darkGrey">Dark Grey</string>
+    <string name="magenta">Magenta</string>
+    <string name="yellow">Yellow</string>
+    <string name="cyan">Cyan</string>
+
+    <string-array name="colorName">
+        <item>@string/red</item>
+        <item>@string/blue</item>
+        <item>@string/black</item>
+        <item>@string/green</item>
+        <item>@string/white</item>
+        <item>@string/lightGrey</item>
+        <item>@string/darkGrey</item>
+        <item>@string/magenta</item>
+        <item>@string/yellow</item>
+        <item>@string/cyan</item>
+    </string-array>
 </resources>
