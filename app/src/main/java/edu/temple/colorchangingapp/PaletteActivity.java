@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class PaletteActivity extends AppCompatActivity {
 
-    ArrayList<String> colorName;
     ArrayList<Integer> colorVal;
 
     GridView gridView;
@@ -29,19 +28,8 @@ public class PaletteActivity extends AppCompatActivity {
         gridView = findViewById(R.id.gridView);
         label = findViewById(R.id.label);
 
-        colorName = new ArrayList<>();
         colorVal = new ArrayList<>();
-
-        colorName.add("Red");
-        colorName.add("Blue");
-        colorName.add("Black");
-        colorName.add("Green");
-        colorName.add("White");
-        colorName.add("Light Grey");
-        colorName.add("Dark Grey");
-        colorName.add("Magenta");
-        colorName.add("Yellow");
-        colorName.add("Cyan");
+        final String[] colorName = getResources().getStringArray(R.array.colorName);
 
         colorVal.add(Color.RED);
         colorVal.add(Color.BLUE);
@@ -61,7 +49,7 @@ public class PaletteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(PaletteActivity.this, CanvasActivity.class);
-                intent.putExtra("colorName", colorName.get(i));
+                intent.putExtra("colorName", colorName[i]);
                 intent.putExtra("colorVal", colorVal.get(i));
                 startActivity(intent);
             }

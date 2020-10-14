@@ -3,6 +3,7 @@ package edu.temple.colorchangingapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -24,6 +25,10 @@ public class CanvasActivity extends AppCompatActivity {
         display.setText(intent.getStringExtra("colorName"));
         display.setTextSize(34);
         background.setBackgroundColor(intent.getIntExtra("colorVal", -1));
+
+        if(display.getText() == getResources().getString(R.string.black)){
+            display.setTextColor(Color.WHITE);
+        }
 
     }
 }
