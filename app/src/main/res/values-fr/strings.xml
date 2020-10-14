@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="red">Rouge</string>
+    <string name="blue">Bleu</string>
+    <string name="black">Noir</string>
+    <string name="green">Vert</string>
+    <string name="white">Blanc</string>
+    <string name="lightGrey">Gris Clair</string>
+    <string name="darkGrey">Gris Foncé</string>
+    <string name="magenta">Magenta</string>
+    <string name="yellow">Jaune</string>
+    <string name="cyan">Cyan</string>
+
+    <string-array name="colorName">
+        <item>@string/red</item>
+        <item>@string/blue</item>
+        <item>@string/black</item>
+        <item>@string/green</item>
+        <item>@string/white</item>
+        <item>@string/lightGrey</item>
+        <item>@string/darkGrey</item>
+        <item>@string/magenta</item>
+        <item>@string/yellow</item>
+        <item>@string/cyan</item>
+    </string-array>
+</resources>
