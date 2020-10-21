@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 public class PaletteFragment extends Fragment {
 
     GridView grid;
+    TextView label;
 
     public PaletteFragment() {
 
@@ -22,12 +24,15 @@ public class PaletteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View palatte =  inflater.inflate(R.layout.fragment_palette, container, false);
+        View palette =  inflater.inflate(R.layout.fragment_palette, container, false);
 
-        grid = palatte.findViewById(R.id.gridView);
-        final BaseAdapter gridAdapter = new CustomAdapter(this.getContext());
-        grid.setAdapter(gridAdapter);
+        label = palette.findViewById(R.id.label);
+        label.setText(getResources().getString(R.string.labelText));
 
-        return palatte;
+        grid = palette.findViewById(R.id.gridView);
+        //final BaseAdapter gridAdapter = new CustomAdapter(palette.getContext());
+        //grid.setAdapter(gridAdapter);
+
+        return palette;
     }
 }

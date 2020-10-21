@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manger = getSupportFragmentManager();
 
         FragmentTransaction transaction = manger.beginTransaction();
-        transaction.add(R.id.container1, canvas).commit();
-        transaction.add(R.id.container2, palette).commit();
+        transaction.add(R.id.container1, canvas)
+                   .add(R.id.container2, palette)
+                   .commit();
 
     }
 }
