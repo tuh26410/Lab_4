@@ -1,23 +1,31 @@
 package edu.temple.colorchangingapp;
 
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class PaletteFragment extends Fragment {
 
     GridView grid;
     TextView label;
 
+    public static final String COLOR_NAMES_KEY = "NAME_KEY";
+
     public PaletteFragment() {
 
+    }
+
+    public static PaletteFragment newInstance(String[] names, int[] values){
+        PaletteFragment fragment = new PaletteFragment();
+        Bundle args = new Bundle();
+        return fragment;
     }
 
     @Override
@@ -30,9 +38,12 @@ public class PaletteFragment extends Fragment {
         label.setText(getResources().getString(R.string.labelText));
 
         grid = palette.findViewById(R.id.gridView);
-        //final BaseAdapter gridAdapter = new CustomAdapter(palette.getContext());
-        //grid.setAdapter(gridAdapter);
+        grid.setAdapter(new CustomAdapter(palette.getContext()));
 
         return palette;
+    }
+
+    interface gridInterface{
+        void itemSelected(String colorName, int colorVal);
     }
 }

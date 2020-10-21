@@ -20,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction transaction = manger.beginTransaction();
         transaction.add(R.id.container1, canvas)
-                   .add(R.id.container2, palette)
+                   .add(R.id.container2, PaletteFragment.newInstance())
                    .commit();
 
     }
+
+
 }

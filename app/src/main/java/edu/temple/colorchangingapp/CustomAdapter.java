@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Integer> colorVal;
+    ArrayList<Integer> colorVal = new ArrayList<Integer>();
 
     public CustomAdapter(Context context) {
         this.context = context;

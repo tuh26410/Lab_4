@@ -15,7 +15,7 @@ public class CanvasFragment extends Fragment {
     //String colorName;
     //int colorVal;
 
-    TextView canvas;
+    TextView display;
 
     public CanvasFragment() {
 
@@ -27,8 +27,6 @@ public class CanvasFragment extends Fragment {
         // Inflate the layout for this fragment
         View canvas = inflater.inflate(R.layout.fragment_canvas, container, false);
         //canvas.setBackgroundColor(colorVal);
-
-        canvas.setBackgroundColor(Color.BLUE);
 
         //TextView display = canvas.findViewById(R.id.canvasTextView);
         //display.setText(colorName);
