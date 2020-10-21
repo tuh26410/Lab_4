@@ -13,11 +13,9 @@ public class CustomAdapter extends BaseAdapter {
 
     Context context;
     ArrayList<Integer> colorVal;
-    ArrayList<String> colorName = new ArrayList<>();
 
-    public CustomAdapter(Context context, ArrayList<Integer> colorVal) {
+    public CustomAdapter(Context context) {
         this.context = context;
-        this.colorVal = colorVal;
     }
 
     @Override
@@ -37,25 +35,26 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View View, ViewGroup viewGroup) {
+        String[] colorName = context.getResources().getStringArray(R.array.colorName);
 
-        colorName.add(context.getResources().getString(R.string.red));
-        colorName.add(context.getResources().getString(R.string.blue));
-        colorName.add(context.getResources().getString(R.string.black));
-        colorName.add(context.getResources().getString(R.string.green));
-        colorName.add(context.getResources().getString(R.string.white));
-        colorName.add(context.getResources().getString(R.string.lightGrey));
-        colorName.add(context.getResources().getString(R.string.darkGrey));
-        colorName.add(context.getResources().getString(R.string.magenta));
-        colorName.add(context.getResources().getString(R.string.yellow));
-        colorName.add(context.getResources().getString(R.string.cyan));
+        colorVal.add(Color.RED);
+        colorVal.add(Color.BLUE);
+        colorVal.add(Color.BLACK);
+        colorVal.add(Color.GREEN);
+        colorVal.add(Color.WHITE);
+        colorVal.add(Color.LTGRAY);
+        colorVal.add(Color.DKGRAY);
+        colorVal.add(Color.MAGENTA);
+        colorVal.add(Color.YELLOW);
+        colorVal.add(Color.CYAN);
 
         TextView text = new TextView(context);
-        text.setText(colorName.get(i));
+        text.setText(colorName[i]);
         text.setBackgroundColor(colorVal.get(i));
         text.setTextSize(22);
         text.setPadding(20, 20, 20, 20);
 
-        if(text.getText() == context.getResources().getString(R.string.black)){
+        if(text.getText().toString().equals(context.getResources().getString(R.string.black))){
             text.setTextColor(Color.WHITE);
         }
 

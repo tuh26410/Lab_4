@@ -26,7 +26,7 @@ public class CanvasActivity extends AppCompatActivity {
         display.setTextSize(34);
         background.setBackgroundColor(intent.getIntExtra("colorVal", -1));
 
-        if(display.getText() == getResources().getString(R.string.black)){
+        if(display.getText().toString().equals(getResources().getString(R.string.black))){
             display.setTextColor(Color.WHITE);
         }
 
