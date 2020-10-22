@@ -2,25 +2,31 @@ package edu.temple.colorchangingapp;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class CustomAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Integer> colorVal = new ArrayList<Integer>();
 
-    public CustomAdapter(Context context) {
+    int[] colorVal;
+    String[] colorName;
+
+    private static final String COLOR_NAMES_KEY = "NAME_KEY";
+    private static final String COLOR_VALUES_KEY = "VALUES_KEY";
+
+    public CustomAdapter(Context context, String[] names, int[] values) {
         this.context = context;
+        colorName = names;
+        colorVal = values;
     }
 
     @Override
     public int getCount() {
-        return colorVal.size();
+        return colorVal.length;
     }
 
     @Override
@@ -30,31 +36,21 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return null;
+        Bundle color = new Bundle();
+        color.putInt(COLOR_VALUES_KEY, colorVal[i]);
+        color.putString(COLOR_NAMES_KEY, colorName[i]);
+        return color;
     }
 
     @Override
     public View getView(int i, View View, ViewGroup viewGroup) {
-        String[] colorName = context.getResources().getStringArray(R.array.colorName);
-
-        colorVal.add(Color.RED);
-        colorVal.add(Color.BLUE);
-        colorVal.add(Color.BLACK);
-        colorVal.add(Color.GREEN);
-        colorVal.add(Color.WHITE);
-        colorVal.add(Color.LTGRAY);
-        colorVal.add(Color.DKGRAY);
-        colorVal.add(Color.MAGENTA);
-        colorVal.add(Color.YELLOW);
-        colorVal.add(Color.CYAN);
-
         TextView text = new TextView(context);
         text.setText(colorName[i]);
-        text.setBackgroundColor(colorVal.get(i));
+        text.setBackgroundColor(colorVal[i]);
         text.setTextSize(22);
         text.setPadding(20, 20, 20, 20);
 
-        if(text.getText().toString().equals(context.getResources().getString(R.string.black))){
+        if(colorVal[i] ==  Color.BLACK){
             text.setTextColor(Color.WHITE);
         }
 

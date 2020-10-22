@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -16,7 +17,13 @@ public class PaletteFragment extends Fragment {
     GridView grid;
     TextView label;
 
-    public static final String COLOR_NAMES_KEY = "NAME_KEY";
+    gridInterface parentActivity;
+
+    private static final String COLOR_NAMES_KEY = "NAME_KEY";
+    private static final String COLOR_VALUES_KEY = "VALUES_KEY";
+
+    String[] colorNames;
+    int[] colorValues;
 
     public PaletteFragment() {
 
@@ -25,7 +32,27 @@ public class PaletteFragment extends Fragment {
     public static PaletteFragment newInstance(String[] names, int[] values){
         PaletteFragment fragment = new PaletteFragment();
         Bundle args = new Bundle();
+        args.putStringArray(COLOR_NAMES_KEY, names);
+        args.putIntArray(COLOR_VALUES_KEY, values);
+        fragment.setArguments(args);
         return fragment;
+    }
+
+    public void onAttach(@NonNull Context context){
+        super.onAttach(context);
+        if(context instanceof  gridInterface){
+            parentActivity = (gridInterface) context;
+        } else {
+            throw new RuntimeException("Implement gridInterface on the Activity that the fragment is attached to.");
+        }
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            colorNames = getArguments().getStringArray(COLOR_NAMES_KEY);
+            colorValues = getArguments().getIntArray(COLOR_VALUES_KEY);
+        }
     }
 
     @Override
@@ -38,12 +65,18 @@ public class PaletteFragment extends Fragment {
         label.setText(getResources().getString(R.string.labelText));
 
         grid = palette.findViewById(R.id.gridView);
-        grid.setAdapter(new CustomAdapter(palette.getContext()));
+        grid.setAdapter(new CustomAdapter((Context) parentActivity, colorNames, colorValues));
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                parentActivity.itemSelected((Bundle) adapterView.getItemAtPosition(i));
+            }
+        });
 
         return palette;
     }
 
     interface gridInterface{
-        void itemSelected(String colorName, int colorVal);
+        void itemSelected(Bundle color);
     }
 }
