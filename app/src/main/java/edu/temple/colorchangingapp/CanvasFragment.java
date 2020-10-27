@@ -45,4 +45,5 @@ public class CanvasFragment extends Fragment {
             display.setTextColor(Color.BLACK);
         }
     }
+
 }
